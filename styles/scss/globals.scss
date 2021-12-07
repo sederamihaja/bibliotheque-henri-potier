@@ -36,3 +36,35 @@
     }
   }
 }
+
+.bookInput {
+  width: 100%;
+  height: 2.6375rem;
+  margin-right: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  font-size: 14px;
+  &:focus {
+    outline: none;
+    border: 1px solid var(--firstColor);
+    box-shadow: none;
+  }
+}
+
+.simpleButton {
+  width: 10rem;
+  height: 2.6375rem;
+  font-size: 16px;
+  border: solid 1px var(--secondColor);
+  border-radius: 3px;
+  color: #fff;
+  background-color: var(--secondColor);
+  &:hover, &.active {
+    color: var(--firstColor);
+    background-color: #fff;
+  }
+  &:focus {
+    outline: none;
+  }
+}

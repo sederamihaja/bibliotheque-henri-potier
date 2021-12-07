@@ -6,7 +6,7 @@ export const NavLink = [
   },
   {
     id: '1',
-    path: '/cart',
-    label: 'Panier',
+    path: 'books/commercialOffer',
+    label: 'Offres commerciales',
   },
 ];

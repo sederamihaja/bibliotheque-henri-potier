@@ -17,7 +17,7 @@ export default function BookCard({ data }) {
       </div>
       <div className={styles.infosContent}>
         <div className={styles.title}>Titre : {data.title}</div>
-        <div>Prix : {`${data.price} €`}</div>
+        <div className={styles.price}>Prix : {`${data.price} €`}</div>
         {
           data.synopsis.map((synopsis, index) => {
             return (

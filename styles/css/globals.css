@@ -37,4 +37,36 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.bookInput {
+  width: 100%;
+  height: 2.6375rem;
+  margin-right: 1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #D8D8D8;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.bookInput:focus {
+  outline: none;
+  border: 1px solid var(--firstColor);
+  box-shadow: none;
+}
+
+.simpleButton {
+  width: 10rem;
+  height: 2.6375rem;
+  font-size: 16px;
+  border: solid 1px var(--secondColor);
+  border-radius: 3px;
+  color: #fff;
+  background-color: var(--secondColor);
+}
+.simpleButton:hover, .simpleButton.active {
+  color: var(--firstColor);
+  background-color: #fff;
+}
+.simpleButton:focus {
+  outline: none;
+}
+
 /*# sourceMappingURL=globals.css.map */

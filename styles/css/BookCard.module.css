@@ -3,8 +3,8 @@
 }
 .cardComponent .imageContent {
   margin-right: 1rem;
-  width: 370px;
-  height: 500px;
+  width: 21vw;
+  height: 30vw;
   background-color: red;
 }
 .cardComponent .imageContent img {
@@ -18,8 +18,14 @@
   max-width: 80%;
 }
 .cardComponent .infosContent .title {
+  margin-bottom: 0.8rem;
   font-size: 22px;
   font-weight: bold;
+}
+.cardComponent .infosContent .price {
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  font-style: italic;
 }
 .cardComponent p {
   text-align: justify;

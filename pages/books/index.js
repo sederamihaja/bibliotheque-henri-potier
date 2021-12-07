@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 import Loader from "react-loader-spinner";
 
 import BookCard from 'components/Card/BookCard';
+import Input from 'components/Input/Input';
+import Button from 'components/Button/Button';
 import { booksService } from 'services';
 import styles from 'styles/css/BookList.module.css';
 
 export default function BookList() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState({"title" : "des sorciers"})
 
   useEffect(() => {
     _getBooks();
@@ -15,16 +18,30 @@ export default function BookList() {
 
   const _getBooks = () => {
     setLoading(true);
-    booksService.getAll()
+    booksService.getAll(filter)
     .then((response) => {
       setBooks(response);
       setLoading(false);
     })
+    .catch((err) => {
+      console.log(err);
+      setLoading(false);
+    });
   }
 
   console.log(books);
   return (
     <div className={styles.booksContainer}>
+      <div className="d-flex">
+        <Input
+          className="bookInput"
+          placeholder="Rechercher..."
+        />
+        <Button
+          className="simpleButton"
+          label="Rechercher"
+        />
+      </div>
       <h3> Liste des livres Henri Potier : </h3>
       {
         loading ? (

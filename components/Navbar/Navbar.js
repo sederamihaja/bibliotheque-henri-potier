@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import NextLink from 'next/link';
 
 import { NavLink } from './Navbar.config';

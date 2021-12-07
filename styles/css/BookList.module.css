@@ -1,6 +1,9 @@
 .booksContainer {
   margin: 2rem;
 }
+.booksContainer h3 {
+  margin-top: 2rem;
+}
 .booksContainer .loading {
   margin-top: 4rem;
   width: 100%;
