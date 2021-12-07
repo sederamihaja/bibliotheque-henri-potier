@@ -1,0 +1,10 @@
+.booksContainer {
+  margin: 2rem;
+}
+.booksContainer .loading {
+  margin-top: 4rem;
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=BookList.module.css.map */

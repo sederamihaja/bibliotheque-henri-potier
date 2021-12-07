@@ -1,0 +1,28 @@
+.cardComponent {
+  margin-top: 2rem;
+}
+.cardComponent .imageContent {
+  margin-right: 1rem;
+  width: 370px;
+  height: 500px;
+  background-color: red;
+}
+.cardComponent .imageContent img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: white;
+}
+.cardComponent .infosContent {
+  width: 80%;
+  max-width: 80%;
+}
+.cardComponent .infosContent .title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.cardComponent p {
+  text-align: justify;
+}
+
+/*# sourceMappingURL=BookCard.module.css.map */

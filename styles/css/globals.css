@@ -1,0 +1,40 @@
+:root {
+  --firstColor: #6fd9fd;
+  --secondColor: #7bf1e0;
+  --whiteColor: #ffffff;
+  --darkColor: #292929;
+  --greyColor: #f9fafc;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
+.navbar-custom {
+  background-color: var(--firstColor);
+}
+.navbar-custom .navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: var(--secondColor);
+}
+.navbar-custom .activeLink {
+  color: var(--secondColor) !important;
+}
+.navbar-custom .navbar-toggler {
+  border: 1px solid #fff;
+}
+.navbar-custom .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+.navbar-custom .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*# sourceMappingURL=globals.css.map */

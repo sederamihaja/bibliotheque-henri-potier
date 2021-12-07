@@ -6,6 +6,14 @@
   --greyColor: #f9fafc;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.flex-justify-center {
+  justify-content: center;
+}
+
 .navbar-custom { 
   background-color: var(--firstColor);
   .navbar-nav .nav-link {
