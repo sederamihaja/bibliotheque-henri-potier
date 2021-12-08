@@ -1,45 +1,49 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Loader from "react-loader-spinner";
 
 import BookCard from 'components/Card/BookCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
-import { booksService } from 'services';
 import styles from 'styles/css/BookList.module.css';
 
-export default function BookList() {
-  const [books, setBooks] = useState([]);
+function BookList({ books }) {
+  const [allBooks, setAllBooks] = useState(books);
   const [loading, setLoading] = useState(false);
-  const [filter, setFilter] = useState({"title" : "des sorciers"})
+  const [filter, setFilter] = useState("");
 
-  useEffect(() => {
-    _getBooks();
-  }, [])
-
-  const _getBooks = () => {
-    setLoading(true);
-    booksService.getAll(filter)
-    .then((response) => {
-      setBooks(response);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.log(err);
-      setLoading(false);
-    });
+  const handleSearch = (ev) => {
+    if (ev?.target) {
+      let { value } = ev.target;
+      setFilter(value);
+    }
   }
 
-  console.log(books);
+  const applyFilter = () => {
+    setLoading(true);
+    
+    let book = books.filter(
+      b => b.title.toLowerCase().indexOf(filter.toLowerCase()) >= 0 ||
+      b.synopsis.some((s) => s.toLowerCase().indexOf(filter.toLowerCase()) >= 0)
+    );
+    setAllBooks(book);
+
+    setLoading(false);
+  }
+
   return (
     <div className={styles.booksContainer}>
       <div className="d-flex">
         <Input
           className="bookInput"
-          placeholder="Rechercher..."
+          placeholder="Titre, synopsis..."
+          name="search"
+          onChange={handleSearch}
+          value={filter || ""}
         />
         <Button
           className="simpleButton"
           label="Rechercher"
+          onClick={applyFilter}
         />
       </div>
       <h3> Liste des livres Henri Potier : </h3>
@@ -56,7 +60,7 @@ export default function BookList() {
         ) : (
           <div>
             {
-              books.map((book, index) => {
+              allBooks.map((book, index) => {
                 return (
                   <BookCard
                     key={index}
@@ -71,3 +75,25 @@ export default function BookList() {
     </div>
   )
 }
+
+export async function getStaticProps() {
+  try {
+    const res = await fetch('https://henri-potier.techx.fr/books')
+    const jsonData = await res.json()
+  
+    return {
+      revalidate: 20,
+      props: {
+        books: jsonData,
+      },
+    }
+  } catch (err) {
+    return {
+      props: {
+        books: [],
+      },
+    };
+  }
+}
+
+export default BookList;
