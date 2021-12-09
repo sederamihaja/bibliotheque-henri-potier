@@ -6,5 +6,5 @@ module.exports = {
        destination: '/books',
        permanent: true,
     }, ]
- },
+   },
 }

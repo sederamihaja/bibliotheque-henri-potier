@@ -15,6 +15,7 @@ function CommercialOffer() {
     let cart = JSON.parse(localStorage.getItem('cart'));
     setMyCart(cart);
     fetchCommercialOffers();
+    // eslint-disable-next-line
   }, []);
 
   const fetchCommercialOffers = async () => {

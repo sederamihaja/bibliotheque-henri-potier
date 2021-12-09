@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Bibliothèque d'Henri Potier</title>
+        <title>Bibliothèque d&apos;Henri Potier</title>
         <meta name="description" content="La bibliothèque d'Henri Potier" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,5 +21,4 @@ function MyApp({ Component, pageProps }) {
     </>
   )
 }
-
 export default MyApp

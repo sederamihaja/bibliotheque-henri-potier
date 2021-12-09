@@ -7,6 +7,7 @@ export default function SumaryCard({ data }) {
       <div className={styles.sumaryComponent}>
         <div className="d-flex flex-justify-center">
           <div className={styles.imageContent}>
+            {/* eslint-disable-next-line */}
             <img src={data.cover} />
           </div>
         </div>

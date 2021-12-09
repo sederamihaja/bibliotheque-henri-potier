@@ -14,6 +14,7 @@ export default function BookCard({ data, dataCart, addToCart }) {
   return (
     <div className={`d-flex ${styles.cardComponent}`}>
       <div className={styles.imageContent}>
+        {/* eslint-disable-next-line */}
         <img src={data.cover} />
       </div>
       <div className={styles.infosContent}>
