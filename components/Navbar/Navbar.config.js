@@ -2,11 +2,11 @@ export const NavLink = [
   {
     id: '0',
     path: '/books',
-    label: 'Accueil',
+    label: 'Liste des livres',
   },
   {
     id: '1',
-    path: 'books/commercialOffer',
+    path: '/books/offers',
     label: 'Offres commerciales',
   },
 ];

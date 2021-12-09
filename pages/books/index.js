@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Loader from "react-loader-spinner";
+import { NotificationManager } from 'react-notifications';
 
 import BookCard from 'components/Card/BookCard';
 import Input from 'components/Input/Input';
@@ -10,6 +11,16 @@ function BookList({ books }) {
   const [allBooks, setAllBooks] = useState(books);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("");
+  const [myCart, setMyCart] = useState([]);
+
+  useEffect(() => {
+    let storedCart = localStorage.getItem('cart');
+    if (storedCart !== null) {
+      setMyCart(JSON.parse(storedCart));
+    } else {
+      localStorage.setItem('cart', JSON.stringify([]));
+    }
+  }, [])
 
   const handleSearch = (ev) => {
     if (ev?.target) {
@@ -28,6 +39,21 @@ function BookList({ books }) {
     setAllBooks(book);
 
     setLoading(false);
+  }
+
+  const addToCart = (e, data) => {
+    e.stopPropagation();
+
+    let cart = [...myCart];
+    if(cart?.some(c => c?.isbn === data?.isbn)) {
+      cart = cart?.filter(c => c?.isbn !== data?.isbn);
+      NotificationManager.warning("Livre retiré du panier", 'Notification');
+    } else {
+      cart?.push(data);
+      NotificationManager.success("Livre ajouté au panier", 'Succès');
+    }
+    setMyCart(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
   return (
@@ -65,6 +91,8 @@ function BookList({ books }) {
                   <BookCard
                     key={index}
                     data={book}
+                    dataCart={myCart}
+                    addToCart={(e) => {addToCart(e, book)}}
                   />
                 )
               })

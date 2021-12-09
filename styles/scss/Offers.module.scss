@@ -1,0 +1,68 @@
+.offersContainer {
+  margin: 2rem;
+  .cartSumary {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    color: var(--darkColor);
+    background-color: var(--thirdColor);
+    .total {
+      color: var(--firstColor);
+    }
+  }
+  .sumaryGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 20px;
+  }
+
+  @media (max-width: 1050px) {
+    .sumaryGrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .sumaryGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 750px) {
+    .sumaryGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .sumaryGrid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .offersGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 40px;
+  }
+  
+  @media (max-width: 900px) {
+    .offersGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 750px) {
+    .offersGrid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}

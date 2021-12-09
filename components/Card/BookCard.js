@@ -1,6 +1,7 @@
+import Button from 'components/Button/Button';
 import styles from 'styles/css/BookCard.module.css';
 
-export default function BookCard({ data }) {
+export default function BookCard({ data, dataCart, addToCart }) {
 
   const trimSynopsis = (synopsis) => {
     console.log(synopsis)
@@ -27,6 +28,15 @@ export default function BookCard({ data }) {
             )
           })
         }
+        <Button
+          className="simpleButton"
+          label={
+            dataCart?.some(c => c?.isbn === data?.isbn) ?
+            "Retirer du panier"
+            : "Ajouter au panier"
+          }
+          onClick={addToCart}
+        />
       </div>
     </div>
   )

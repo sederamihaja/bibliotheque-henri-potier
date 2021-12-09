@@ -1,9 +1,11 @@
 :root {
-  --firstColor: #6fd9fd;
+  --firstColor: #008970;
   --secondColor: #7bf1e0;
-  --whiteColor: #ffffff;
+  --thirdColor: #a9c0a3;
+  --darkGreyColor: #879B9D;
   --darkColor: #292929;
-  --greyColor: #f9fafc;
+  --greyColor: #d8d8d8;
+  --greenColor: #a8c66c;
 }
 
 .d-flex {
@@ -12,6 +14,10 @@
 
 .flex-justify-center {
   justify-content: center;
+}
+
+.flex-justify-between {
+  justify-content: space-between;
 }
 
 .navbar-custom { 
@@ -56,10 +62,10 @@
   width: 10rem;
   height: 2.6375rem;
   font-size: 16px;
-  border: solid 1px var(--secondColor);
+  border: solid 1px var(--firstColor);
   border-radius: 3px;
   color: #fff;
-  background-color: var(--secondColor);
+  background-color: var(--firstColor);
   &:hover, &.active {
     color: var(--firstColor);
     background-color: #fff;

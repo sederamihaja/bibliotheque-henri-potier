@@ -1,0 +1,21 @@
+.offerComponent {
+  border-radius: 5px;
+}
+.offerComponent .offerTitle {
+  padding: 1rem;
+  font-weight: bold;
+  border-bottom: solid 1px white;
+}
+.offerComponent .offerContent {
+  padding: 1rem;
+}
+
+.offerGray {
+  background-color: var(--greyColor);
+}
+
+.offerGreen {
+  background-color: var(--greenColor);
+}
+
+/*# sourceMappingURL=OfferCard.module.css.map */
