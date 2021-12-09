@@ -70,7 +70,7 @@ function CommercialOffer() {
       let offerRes = [
         {
           label: "Pourcentage",
-          value: offerPercentage
+          value: parseFloat(offerPercentage).toFixed(2)
         },
         {
           label: "Déduction",
