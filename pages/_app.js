@@ -1,12 +1,23 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 import Navbar from 'components/Navbar/Navbar';
+import { EventEmitter } from "providers/eventEmitter";
 import 'styles/css/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+if (typeof window !== "undefined") {
+  require('bootstrap/dist/js/bootstrap.min.js');
+}
+
 function MyApp({ Component, pageProps }) {
+
+  useEffect(() => {
+    EventEmitter.emit("localStorage");
+  }, [])
+
   return (
     <>
       <Head>

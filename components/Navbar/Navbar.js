@@ -3,14 +3,21 @@ import NextLink from 'next/link';
 
 import { NavLink } from './Navbar.config';
 import { SvgCart } from "components/Icone/Icone";
+import { EventEmitter } from "providers/eventEmitter";
 
 export default function Navbar() {
   const [myCart, setMyCart] = useState([]);
 
   useEffect(() => {
-    let cart = localStorage.getItem('cart');
-    setMyCart(JSON.parse(cart));
-  }, [myCart]); 
+    listeningEventEmitters();
+  }, []);
+
+  const listeningEventEmitters = () => {
+    EventEmitter.subscribe("localStorage", (_) => {
+      let cart = localStorage.getItem('cart');
+      setMyCart(JSON.parse(cart));
+    });
+  };
 
   return (
     <>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NotificationManager } from 'react-notifications';
+import Loader from "react-loader-spinner";
 
 import SumaryCard from "components/Card/SumaryCard";
 import OfferCard from "components/Card/OfferCard";
@@ -97,7 +98,16 @@ function CommercialOffer() {
             Résumé de votre panier
           </span>
           <span className={styles.total}>
-            {`Total : ${totalPrice} €`}
+            {
+              !totalPrice ? (
+                <Loader
+                  type="ThreeDots"
+                  color="#008970"
+                  height={30}
+                  width={30}
+                />
+              ) :`Total : ${totalPrice} €`
+            }
           </span>
         </div>
         <div className={styles.sumaryGrid}>
@@ -114,21 +124,32 @@ function CommercialOffer() {
         <div className={styles.cartSumary}>
           Meilleur offre commerciale pour votre acchat : {bestOffers}
         </div>
-        <div className={styles.offersGrid}>
-          {
-            offerResult.map((offerR, index) => {
-              return (
-                <div key={index}>
-                  <OfferCard
-                    data={offerR}
-                    bestOffers={bestOffers}
-                    totalPrice={totalPrice}
-                  />
-                </div>
-              )
-            })
-          }
-        </div>
+        {
+          !offerResult.length ? (
+            <div className={`d-flex flex-justify-center ${styles.loading}`}>
+              <Loader
+                type="Oval"
+                color="#008970"
+                height={100}
+                width={100}
+              />
+            </div>
+          ) : <div className={styles.offersGrid}>
+                {
+                  offerResult.map((offerR, index) => {
+                    return (
+                      <div key={index}>
+                        <OfferCard
+                          data={offerR}
+                          bestOffers={bestOffers}
+                          totalPrice={totalPrice}
+                        />
+                      </div>
+                    )
+                  })
+                }
+              </div>
+        }
       </div>
     </>
   )

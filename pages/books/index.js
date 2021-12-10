@@ -5,6 +5,7 @@ import { NotificationManager } from 'react-notifications';
 import BookCard from 'components/Card/BookCard';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
+import { EventEmitter } from "providers/eventEmitter";
 import styles from 'styles/css/BookList.module.css';
 
 function BookList({ books }) {
@@ -54,6 +55,7 @@ function BookList({ books }) {
     }
     setMyCart(cart);
     localStorage.setItem('cart', JSON.stringify(cart));
+    EventEmitter.emit("localStorage");
   }
 
   return (
@@ -107,7 +109,7 @@ function BookList({ books }) {
 export async function getStaticProps() {
   try {
     const res = await fetch('https://henri-potier.techx.fr/books')
-    const jsonData = await res.json()
+    const jsonData = await res.json();
   
     return {
       revalidate: 20,
