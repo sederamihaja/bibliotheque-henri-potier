@@ -26,6 +26,9 @@ function BookList({ books }) {
   const handleSearch = (ev) => {
     if (ev?.target) {
       let { value } = ev.target;
+      if (value === "") {
+        setAllBooks(books);
+      }
       setFilter(value);
     }
   }
@@ -62,6 +65,7 @@ function BookList({ books }) {
     <div className={styles.booksContainer}>
       <div className="d-flex">
         <Input
+          type="search"
           className="bookInput"
           placeholder="Titre, synopsis..."
           name="search"
