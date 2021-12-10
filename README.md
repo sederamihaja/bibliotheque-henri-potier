@@ -1,6 +1,6 @@
 ## La bibliothèque d&apos;Henri Potier
 
-Vous pouvez utiliser [ce litn](https://github.com/sederamihaja/bibliotheque-henri-potier.git) pour cloner le projet.
+Vous pouvez utiliser [ce lien](https://github.com/sederamihaja/bibliotheque-henri-potier.git) pour cloner le projet.
 
 Une fois le clone terminé, lancer la commande suivante dans votre términal pour installer les dépendances nécessiares au projet :
 
