@@ -12,7 +12,10 @@ if (typeof window !== "undefined") {
   require('bootstrap/dist/js/bootstrap.min.js');
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ 
+  Component,
+  pageProps
+}) {
 
   useEffect(() => {
     EventEmitter.emit("localStorage");
